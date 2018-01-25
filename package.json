@@ -31,5 +31,9 @@
     "jest": "^22.1.4",
     "nodemon": "^1.14.11",
     "supertest": "^3.0.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": []
 }
