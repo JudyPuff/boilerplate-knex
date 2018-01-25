@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const hbs = require('express-handlebars')
 
 const userRoutes = require('./routes/users')
-
+const addUser = require('./routes/adduser')
 const server = express()
 
 // Middleware
@@ -15,6 +15,7 @@ server.use(bodyParser.urlencoded({ extended: true }))
 // Routes
 
 server.use('/', userRoutes)
+server.use('/adduser', addUser)
 
 module.exports = server
 
