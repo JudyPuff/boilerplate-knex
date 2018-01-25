@@ -14,5 +14,13 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/profiles/:id', (req, res) => {
+  let id = req.params.id
+  db.getProfile(id)
+    .then(profile => {
+      res.render('profiles', profile[0])
+    })
+})
+
 module.exports = router
 
