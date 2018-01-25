@@ -5,6 +5,7 @@ const connection = require('knex')(config)
 module.exports = {
   getUser: getUser,
   getUsers: getUsers,
+  getProfile: getProfile,
   addUser: addUser
 }
 
@@ -18,6 +19,13 @@ function getUser (id, testConn) {
   return conn('users').where('id', id)
 }
 
+function getProfile (id, testConn) {
+  const conn = testConn || connection
+  return conn('profiles')
+    .join('users', 'users.id', 'profiles.user_id')
+    .where('profiles.user_id', id)
+    .select('users.name', 'users.email', 'profiles.country')
+}
 function addUser(newData, testConn) {
   const conn = testConn || connection
   return conn('users')
