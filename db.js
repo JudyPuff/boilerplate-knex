@@ -31,6 +31,8 @@ function addUser (user, testConn) {
     .catch(err => {
       console.status(500)
     })
+  }
+  
 function getProfile (id, testConn) {
   const conn = testConn || connection
   return conn('users')
