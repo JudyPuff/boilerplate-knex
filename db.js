@@ -4,7 +4,8 @@ const connection = require('knex')(config)
 
 module.exports = {
   getUser: getUser,
-  getUsers: getUsers
+  getUsers: getUsers,
+  addUser: addUser
 }
 
 function getUsers (testConn) {
@@ -15,4 +16,10 @@ function getUsers (testConn) {
 function getUser (id, testConn) {
   const conn = testConn || connection
   return conn('users').where('id', id)
+}
+
+function addUser(newData, testConn) {
+  const conn = testConn || connection
+  return conn('users')
+    .insert(newData)
 }
