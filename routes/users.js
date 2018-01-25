@@ -5,7 +5,7 @@ const db = require('../db')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  db.getUsers()
+  db.listUsers()
     .then(users => {
       res.render('index', { users: users })
     })
@@ -15,4 +15,3 @@ router.get('/', (req, res) => {
 })
 
 module.exports = router
-
